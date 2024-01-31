@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Colorful Website with Games</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            padding: 2em;
+        }
+
+        section:nth-child(even) {
+            background: linear-gradient(to right, #a18cd1, #fbc2eb);
+        }
+
+        footer {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        #game-section {
+            text-align: center;
+        }
+
+        #result {
+            margin-top: 1em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to My Colorful Website</h1>
+    </header>
+
+    <section>
+        <h2>About Us</h2>
+        <p>This is a vibrant and iridescent static website created with pure HTML.</p>
+    </section>
+
+    <section id="game-section">
+        <h2>Games</h2>
+        <p>Choose your move in Rock-Paper-Scissors:</p>
+        <button onclick="playGame('rock')">Rock</button>
+        <button onclick="playGame('paper')">Paper</button>
+        <button onclick="playGame('scissors')">Scissors</button>
+        <p id="result"></p>
+    </section>
+
+    <section>
+        <h2>Services</h2>
+        <ul>
+            <li>Web Design</li>
+            <li>Graphic Design</li>
+            <li>SEO Optimization</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My Colorful Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript code for the rock-paper-scissors game
+        function playGame(userChoice) {
+            var choices = ['rock', 'paper', 'scissors'];
+            var computerChoice = choices[Math.floor(Math.random() * 3)];
+            var resultElement = document.getElementById('result');
+
+            if (userChoice === computerChoice) {
+                resultElement.textContent = 'It\'s a tie!';
+            } else if (
+                (userChoice === 'rock' && computerChoice === 'scissors') ||
+                (userChoice === 'paper' && computerChoice === 'rock') ||
+                (userChoice === 'scissors' && computerChoice === 'paper')
+            ) {
+                resultElement.textContent = 'You win!';
+            } else {
+                resultElement.textContent = 'You lose! Try again.';
+            }
+        }
+    </script>
+
+</body>
+</html>
